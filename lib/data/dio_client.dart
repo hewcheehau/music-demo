@@ -38,7 +38,6 @@ class DioClient {
         onReceiveProgress: onReceiveProgress,
       );
 
-      //_printApiResponse(url, queryParameters, response);
       return SuccessResponse(response: response);
     } catch (e) {
       rethrow;

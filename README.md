@@ -1,30 +1,42 @@
 # music_demo
-A Flutter Music Project 
+A Flutter Search Music Project 
+- Utilize the search api
+
+### How to Run
+- flutter run
 
 # Flutter version 
 - 3.10.5
 
-# State management
+## State management
 - Bloc
 
-# Route management
-- auto route
+## Route management
+- auto route 
 
-# http package
+## http package
 - dio 
 
-# File structure
+## Api references
+1. https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/iTuneSearchAPI/Searching.html#//apple_ref/doc/uid/TP40017632-CH5-SW1
+
+
+## File structure
 
 - main.dart
 - app.dart
 - feature
- - home
- - radio
- - library
- - search
+    - home
+    - radio
+    - library
+    - search
 
 - core
 - data
- - service_locator
- - dio_client
- - dio_response
+    - service_locator
+    - dio_client
+    - dio_response
+
+## Screenshot
+
+![Screenshot] (assets/screenshot/home-ss.png)

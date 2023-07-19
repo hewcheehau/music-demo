@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
 /// Custom http response model
@@ -8,20 +9,16 @@ abstract class DioResponse {
     this.url,
   });
 
-  final dynamic response;
+  final Response response;
   final String? url;
 
-  get statusCode {
-    return response.data["status"]["code"];
-  }
+  int get statusCode => response.statusCode ?? 400;
 
   get data {
     return response.data;
   }
-
-  get statusMessage {
-    return response.data["status"]["message"];
-  }
+  
+  bool get isSuccess => statusCode == 200;
 
   get printSingle {
     var encoder = const JsonEncoder.withIndent("  ");
@@ -34,8 +31,4 @@ abstract class DioResponse {
 
 class SuccessResponse extends DioResponse {
   SuccessResponse({required super.response, super.url});
-}
-
-class FailureResponse extends DioResponse {
-  FailureResponse({required super.response});
 }

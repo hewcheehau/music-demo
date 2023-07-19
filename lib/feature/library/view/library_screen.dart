@@ -1,5 +1,7 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:music_demo/core/utils/app_extension.dart';
 
 @RoutePage()
 class LibraryScreen extends StatelessWidget {
@@ -7,6 +9,18 @@ class LibraryScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return CupertinoPageScaffold(
+      child: CustomScrollView(
+        slivers: [
+           SliverAppBar.medium(
+            title: Text(
+              context.loc.libraryLabel,
+              style: const TextStyle(
+                  fontWeight: FontWeight.bold, color: Colors.black),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }

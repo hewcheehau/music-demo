@@ -15,25 +15,25 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
-    HomeRouterPage.name: (routeData) {
+    HomeRouter.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const HomeRouterPage(),
       );
     },
-    LibraryRouterPage.name: (routeData) {
+    LibraryRouter.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const LibraryRouterPage(),
       );
     },
-    RadioRouterPage.name: (routeData) {
+    RadioRouter.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const RadioRouterPage(),
       );
     },
-    SearchRouterPage.name: (routeData) {
+    SearchRouter.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const SearchRouterPage(),
@@ -74,56 +74,56 @@ abstract class _$AppRouter extends RootStackRouter {
 
 /// generated route for
 /// [HomeRouterPage]
-class HomeRouterPage extends PageRouteInfo<void> {
-  const HomeRouterPage({List<PageRouteInfo>? children})
+class HomeRouter extends PageRouteInfo<void> {
+  const HomeRouter({List<PageRouteInfo>? children})
       : super(
-          HomeRouterPage.name,
+          HomeRouter.name,
           initialChildren: children,
         );
 
-  static const String name = 'HomeRouterPage';
+  static const String name = 'HomeRouter';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
 /// [LibraryRouterPage]
-class LibraryRouterPage extends PageRouteInfo<void> {
-  const LibraryRouterPage({List<PageRouteInfo>? children})
+class LibraryRouter extends PageRouteInfo<void> {
+  const LibraryRouter({List<PageRouteInfo>? children})
       : super(
-          LibraryRouterPage.name,
+          LibraryRouter.name,
           initialChildren: children,
         );
 
-  static const String name = 'LibraryRouterPage';
+  static const String name = 'LibraryRouter';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
 /// [RadioRouterPage]
-class RadioRouterPage extends PageRouteInfo<void> {
-  const RadioRouterPage({List<PageRouteInfo>? children})
+class RadioRouter extends PageRouteInfo<void> {
+  const RadioRouter({List<PageRouteInfo>? children})
       : super(
-          RadioRouterPage.name,
+          RadioRouter.name,
           initialChildren: children,
         );
 
-  static const String name = 'RadioRouterPage';
+  static const String name = 'RadioRouter';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
 /// [SearchRouterPage]
-class SearchRouterPage extends PageRouteInfo<void> {
-  const SearchRouterPage({List<PageRouteInfo>? children})
+class SearchRouter extends PageRouteInfo<void> {
+  const SearchRouter({List<PageRouteInfo>? children})
       : super(
-          SearchRouterPage.name,
+          SearchRouter.name,
           initialChildren: children,
         );
 
-  static const String name = 'SearchRouterPage';
+  static const String name = 'SearchRouter';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
