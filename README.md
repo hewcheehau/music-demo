@@ -39,4 +39,6 @@ A Flutter Search Music Project
 
 ## Screenshot
 
-![Screenshot] (assets/screenshot/home-ss.png)
+<img src="assets/screenshot/home-ss.png" width="200">
+<img src="assets/screenshot/search-ss.png" width="200">
+<img src="assets/screenshot/search-ss2.png" width="200">
