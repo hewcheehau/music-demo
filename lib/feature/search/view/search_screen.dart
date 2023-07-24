@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:music_demo/core/utils/app_extension.dart';
+import 'package:music_demo/core/utils/app_router.dart';
 import 'package:music_demo/feature/search/bloc/bloc/search_bloc.dart';
 
 @RoutePage()
@@ -15,8 +16,10 @@ class SearchScreen extends StatelessWidget {
     return CupertinoPageScaffold(
       child: CustomScrollView(
         slivers: [
-          SliverAppBar.medium(
-            title: Text(
+          CupertinoSliverNavigationBar(
+            border: const Border.fromBorderSide(
+                BorderSide(color: Colors.transparent)),
+            largeTitle: Text(
               context.loc.searchLabel,
               style: const TextStyle(
                   fontWeight: FontWeight.bold, color: Colors.black),
@@ -25,16 +28,19 @@ class SearchScreen extends StatelessWidget {
           SliverAppBar(
             pinned: true,
             toolbarHeight: 0,
+            backgroundColor:CupertinoTheme.of(context).barBackgroundColor,
+            surfaceTintColor: CupertinoTheme.of(context).barBackgroundColor,
             flexibleSpace: FlexibleSpaceBar(
-                title: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: CupertinoSearchTextField(
-                placeholder: context.loc.searchDesc,
-                onSubmitted: (value) {
-                  context.read<SearchBloc>().add(SearchByKeyword(text: value));
-                },
+              title: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15),
+                child: CupertinoSearchTextField(
+                  placeholder: context.loc.searchDesc,
+                  onSubmitted: (value) {
+                    context.read<SearchBloc>().add(SearchByKeyword(text: value));
+                  },
+                ),
               ),
-            )),
+            ),
           ),
           BlocBuilder<SearchBloc, SearchState>(builder: (context, state) {
             if (state.status == SearchStatus.searching) {
@@ -51,6 +57,7 @@ class SearchScreen extends StatelessWidget {
               itemBuilder: (context, index) {
                 var data = state.data[index];
                 return CupertinoListTile(
+                  onTap: () => context.router.push(SearchDetailRoute(item: data)),
                   trailing: data.isSong
                       ? const Icon(CupertinoIcons.list_bullet)
                       : const Icon(CupertinoIcons.forward),
@@ -89,5 +96,37 @@ class SearchScreen extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+class PersistentHeader extends SliverPersistentHeaderDelegate {
+  final double maxH, minH;
+
+  PersistentHeader({this.maxH = 58, this.minH = 58});
+
+  @override
+  Widget build(
+      BuildContext context, double shrinkOffset, bool overlapsContent) {
+    return SizedBox(
+      height: minH,
+      width: double.maxFinite,
+      child: CupertinoSearchTextField(
+        placeholder: context.loc.searchDesc,
+        onSubmitted: (value) {
+          context.read<SearchBloc>().add(SearchByKeyword(text: value));
+        },
+      ),
+    );
+  }
+
+  @override
+  double get maxExtent => maxH;
+
+  @override
+  double get minExtent => minH;
+
+  @override
+  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) {
+    return true;
   }
 }

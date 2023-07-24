@@ -20,12 +20,13 @@ extension CustomText on String {
     Color? color,
     double? size,
     FontWeight? fontWeight,
+    TextAlign textAlign = TextAlign.left,
   }) =>
       _text(
           text: this,
           color: color,
           fontSize: size ?? 14,
-          fontWeight: fontWeight ?? FontWeight.normal);
+          fontWeight: fontWeight ?? FontWeight.normal, textAlign: textAlign);
 
   Text _text(
       {String text = "",

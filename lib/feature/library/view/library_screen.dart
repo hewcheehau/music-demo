@@ -12,8 +12,8 @@ class LibraryScreen extends StatelessWidget {
     return CupertinoPageScaffold(
       child: CustomScrollView(
         slivers: [
-           SliverAppBar.medium(
-            title: Text(
+           CupertinoSliverNavigationBar(
+            largeTitle: Text(
               context.loc.libraryLabel,
               style: const TextStyle(
                   fontWeight: FontWeight.bold, color: Colors.black),

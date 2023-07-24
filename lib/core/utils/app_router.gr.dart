@@ -57,6 +57,16 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const LibraryScreen(),
       );
     },
+    SearchDetailRoute.name: (routeData) {
+      final args = routeData.argsAs<SearchDetailRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: SearchDetailScreen(
+          key: args.key,
+          item: args.item,
+        ),
+      );
+    },
     SearchRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -168,6 +178,44 @@ class LibraryRoute extends PageRouteInfo<void> {
   static const String name = 'LibraryRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [SearchDetailScreen]
+class SearchDetailRoute extends PageRouteInfo<SearchDetailRouteArgs> {
+  SearchDetailRoute({
+    Key? key,
+    required MusicItem item,
+    List<PageRouteInfo>? children,
+  }) : super(
+          SearchDetailRoute.name,
+          args: SearchDetailRouteArgs(
+            key: key,
+            item: item,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'SearchDetailRoute';
+
+  static const PageInfo<SearchDetailRouteArgs> page =
+      PageInfo<SearchDetailRouteArgs>(name);
+}
+
+class SearchDetailRouteArgs {
+  const SearchDetailRouteArgs({
+    this.key,
+    required this.item,
+  });
+
+  final Key? key;
+
+  final MusicItem item;
+
+  @override
+  String toString() {
+    return 'SearchDetailRouteArgs{key: $key, item: $item}';
+  }
 }
 
 /// generated route for

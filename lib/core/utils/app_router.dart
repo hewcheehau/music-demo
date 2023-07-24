@@ -1,8 +1,11 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
 import 'package:music_demo/app.dart';
 import 'package:music_demo/feature/home/view/home_screen.dart';
 import 'package:music_demo/feature/library/view/library_screen.dart';
 import 'package:music_demo/feature/radio/view/radio_screen.dart';
+import 'package:music_demo/feature/search/model/music_item.dart';
+import 'package:music_demo/feature/search/view/search_detail_screen.dart';
 import 'package:music_demo/feature/search/view/search_screen.dart';
 part 'app_router.gr.dart';
 
@@ -50,7 +53,8 @@ class AppRouter extends _$AppRouter {
           AutoRoute(
               page: SearchRouter.page,
               path: "search",
-              children: [AutoRoute(page: SearchRoute.page, path: "")]),
+              children: [AutoRoute(page: SearchRoute.page, path: ""),
+              AutoRoute(page: SearchDetailRoute.page, path: "searchDetail")]),
         ])
       ];
 }

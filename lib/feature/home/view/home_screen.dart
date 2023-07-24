@@ -12,29 +12,29 @@ class HomeScreen extends StatelessWidget {
     return CupertinoPageScaffold(
       child: CustomScrollView(
         slivers: [
-          SliverAppBar.large(
-            actions: [
-              IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    CupertinoIcons.person_circle,
-                    size: 30,
-                  )),
-            ],
-            elevation: 5,
-            title: Text(
+          CupertinoSliverNavigationBar(
+            // This title is visible in both collapsed and expanded states.
+            // When the "middle" parameter is omitted, the widget provided
+            // in the "largeTitle" parameter is used instead in the collapsed state.
+            largeTitle: Text(
               context.loc.listenNowLabel,
               style: const TextStyle(
                   fontWeight: FontWeight.bold, color: Colors.black),
             ),
+
+            trailing: IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  CupertinoIcons.person_circle,
+                  size: 30,
+                )),
           ),
           SliverToBoxAdapter(
             child: Card(
-              margin: const EdgeInsets.all(10),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(5)
-              ),
-              child: Image.asset("banner".toPng())),
+                margin: const EdgeInsets.all(10),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(5)),
+                child: Image.asset("banner".toPng())),
           ),
           SliverToBoxAdapter(
             child: Container(
